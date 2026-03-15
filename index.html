@@ -38,8 +38,8 @@
 <body>
 
     <header style="text-align: center; padding: 50px 0;">
-        <h1><i class="fa-solid fa-microchip"></i> C++ 程式設計：全方位教學指南</h1>
-        <p>從零基礎語法到高階物件導向，建立最紮實的資工底層實力。</p>
+        <h1><i class="fa-solid fa-microchip"></i>澤的 C++ 程式設計：全方位教學指南</h1>
+        <p>從零基礎語法到高階物件導向，建立最紮實的程式實作實力。</p>
     </header>
 
     <nav>
@@ -55,24 +55,63 @@
 
     <main>
         <section id="ch1" class="chapter">
-            <h2>第 1 章：基礎語法與變數</h2>
-            <p>一切的開始。C++ 是一個編譯型語言，嚴謹的資料型態是其特徵。</p>
+            <h2>第 1 章：哈囉 C++！我的第一隻程式</h2>
+            <p>寫程式其實就像是在下指令。這一章我們要學習如何讓電腦說話，以及如何讓它幫我們完成要求。</p>
+        
+            <h3>1.1 程式的基本架構</h3>
+            <p>這是一段最標準的 C++ 程式，你可以把它想像成一個「公版」，大部份的練習都會從這裡開始：</p>
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    int score = 100;       // 整數
-    float temp = 36.5f;    // 單精度浮點數
-    double pi = 3.14159;   // 雙精度浮點數
-    char initial = 'C';    // 單一字元
-    bool isPass = true;    // 布林值
-    
-    cout << "分數為：" << score << endl;
-    return 0;
-}</code></pre>
+                <pre><code class="language-cpp">#include &lt;iostream&gt; // 告訴電腦我們要用到「螢幕輸出」的功能
+        using namespace std; // 讓我們寫程式更簡短的小祕技
+        
+        int main() {
+            cout << "你好，C++！"; // cout 代表「輸出到螢幕」，<< 後面放想說的話
+            return 0;
+        }</code></pre>
             </div>
+        
+            <h3>1.2 變數：電腦的置物櫃</h3>
+            <p>在寫程式時，我們常需要電腦幫我們記住數字或文字，這就是「變數」。<br>
+            想像你在電腦裡租了幾個置物櫃，每個置物櫃都要貼上標籤，告訴電腦裡面要放什麼：</p>
+            
+            <ul>
+                <li><strong>int (整數)：</strong> 用來放沒有小數點的數字，例如年紀、人數。</li>
+                <li><strong>double (小數)：</strong> 用來放有小數點的數字，例如身高、體重、GPA。</li>
+                <li><strong>char (字元)：</strong> 用來放單一個字母或符號，例如 'A'、'B'。</li>
+                <li><strong>string (字串)：</strong> 用來放一長串的話，例如「我的名字」。</li>
+                <li><strong>bool (布林值)：</strong> 只用來放「對 (true)」或「錯 (false)」。</li>
+            </ul>
+        
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-cpp">int age = 17;           // 記住年紀是 17
+        double height = 175.5;  // 記住身高
+        string name = "小明";    // 記住名字
+        bool isHappy = true;    // 記住現在很開心</code></pre>
+            </div>
+        
+            <h3>1.3 讓電腦跟你互動 (cin)</h3>
+            <p>除了讓電腦說話，我們也可以讓電腦「聽話」。使用 <code>cin</code> 就可以讓使用者輸入資料：</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-cpp">int luckyNumber;
+        cout << "請輸入你的幸運數字：";
+        cin >> luckyNumber; // 電腦會停下來等你輸入，並存進 luckyNumber 置物櫃
+        cout << "原來你的幸運數字是 " << luckyNumber;</code></pre>
+            </div>
+        
+            <div class="pro-tip">
+                <strong>💡 小撇步：</strong> 
+                記住箭頭的方向：<code>cout <<</code> 是把資料推向螢幕；<code>cin >></code> 是把資料從鍵盤推向變數！
+            </div>
+        
+            <h3>1.4 簡單的數學運算</h3>
+            <p>電腦最擅長算術了，你可以直接讓它幫你算加減乘除：</p>
+            <pre><code class="language-cpp">int a = 10;
+        int b = 3;
+        cout << a + b; // 加法，輸出 13
+        cout << a / b; // 除法，因為都是整數，會輸出 3 (餘數被捨棄了)</code></pre>
         </section>
 
         <section id="ch2" class="chapter">
