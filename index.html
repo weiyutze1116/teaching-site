@@ -3,63 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的教學網站 - 課程名稱</title>
+    <title>C++ 程式設計：從零基礎到精通</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <style>
-        body { max-width: 900px; margin: auto; padding: 20px; }
-        .card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .tag { background: #007bff; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; }
-        header { text-align: center; padding: 40px 0; background: #f8f9fa; border-radius: 10px; }
+        :root { --code-bg: #2d2d2d; --code-text: #f8f8f2; }
+        pre { background: var(--code-bg); color: var(--code-text); padding: 1.5rem; border-radius: 8px; overflow-x: auto; line-height: 1.5; }
+        code { font-family: 'Consolas', 'Monaco', monospace; }
+        .chapter { margin-bottom: 3rem; border-bottom: 1px solid #eee; padding-bottom: 2rem; }
+        .highlight { color: #e91e63; font-weight: bold; }
+        nav { position: sticky; top: 0; background: white; padding: 10px 0; z-index: 100; border-bottom: 2px solid #007bff; }
+        nav a { margin-right: 15px; font-size: 0.9rem; text-decoration: none; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>📚 課程名稱：[例如：C++ 程式設計入門]</h1>
-        <p>歡迎來到本課程，這裡提供所有教學講義與資源。</p>
+        <h1>📘 C++ 程式設計完全指南</h1>
+        <p>這是一份系統化的 C++ 學習路徑，專為想要掌握程式邏輯的初學者設計。</p>
     </header>
 
+    <nav>
+        <strong>快速跳轉：</strong>
+        <a href="#basics">基礎語法</a>
+        <a href="#control">流程控制</a>
+        <a href="#functions">函式與陣列</a>
+        <a href="#pointers">指標與記憶體</a>
+        <a href="#oop">物件導向</a>
+    </nav>
+
     <main>
-        <section>
-            <h2>📖 課程簡介</h2>
-            <p>本課程旨在幫助學生掌握基礎知識，透過實作與範例引導，讓你輕鬆上手！</p>
+        <section id="basics" class="chapter">
+            <h2>第 0 章：基本程式架構</h2>
+            <p>每一段 C++ 程式都從 <code>main</code> 函式開始執行。</p>
+            <pre><code>#include &lt;iostream&gt; // 引入標準輸入輸出庫
+
+int main() {
+    // std::cout 代表輸出到螢幕
+    std::cout << "Hello C++!" << std::endl; 
+    return 0; // 程式正常結束
+}</code></pre>
         </section>
 
-        <section>
-            <h2>📁 教材下載區</h2>
-            <div class="card">
-                <h3>第一週：環境設定與基礎語法</h3>
-                <p>介紹如何安裝編譯器與寫出第一個 Hello World。</p>
-                <a href="#">📥 下載講義 (PDF)</a> | <a href="#">💻 範例程式碼 (GitHub)</a>
-            </div>
-            <div class="card">
-                <h3>第二週：變數與運算式</h3>
-                <p>學習資料型態、運算符號與邏輯判斷。</p>
-                <a href="#">📥 下載講義 (PDF)</a>
-            </div>
-        </section>
-
-        <section>
-            <h2>🎥 線上教學影片</h2>
-            <p>如果你錯過了課堂，可以參考下方的複習影片：</p>
-            <div style="aspect-ratio: 16 / 9;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </section>
-
-        <section>
-            <h2>✉️ 聯絡老師</h2>
-            <p>有任何問題，歡迎透過以下方式聯繫：</p>
+        <section class="chapter">
+            <h2>第 1 章：變數與資料型態</h2>
+            <p>C++ 是一種<span class="highlight">強型別</span>語言，每個變數都必須宣告型別。</p>
             <ul>
-                <li>Email: your-email@example.com</li>
-                <li>Office Hour: 每週三 14:00 - 16:00</li>
+                <li><code>int</code>: 整數 (例如 10, -5)</li>
+                <li><code>double</code>: 浮點數 (例如 3.14)</li>
+                <li><code>char</code>: 單一字元 (例如 'A')</li>
+                <li><code>bool</code>: 布林值 (true / false)</li>
             </ul>
+            <pre><code>int age = 20;
+double price = 99.9;
+bool isReady = true;</code></pre>
+        </section>
+
+        <section id="control" class="chapter">
+            <h2>第 2 章：條件判斷與迴圈</h2>
+            <p>控制程式的執行路徑是邏輯開發的核心。</p>
+            <h3>條件判斷 (If-Else)</h3>
+            <pre><code>if (age >= 18) {
+    std::cout << "成年人";
+} else {
+    std::cout << "未成年";
+}</code></pre>
+            <h3>重複執行 (Loops)</h3>
+            <pre><code>// 印出 0 到 4
+for (int i = 0; i < 5; i++) {
+    std::cout << i << " ";
+}</code></pre>
+        </section>
+
+        <section id="pointers" class="chapter">
+            <h2>第 3 章：指標 (Pointers) - C++ 的靈魂</h2>
+            <p>指標是儲存<span class="highlight">記憶體位址</span>的變數，這是 C++ 最強大也最危險的地方。</p>
+            <pre><code>int val = 10;
+int* ptr = &val; // ptr 儲存了 val 的位址
+
+std::cout << *ptr; // 取值符號 (*)，輸出 10</code></pre>
+        </section>
+
+        <section id="oop" class="chapter">
+            <h2>第 4 章：物件導向 (OOP)</h2>
+            <p>透過類別 (Class) 將資料與行為封裝在一起。</p>
+            <pre><code>class Dog {
+public:
+    void bark() {
+        std::cout << "汪汪！";
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.bark(); // 呼叫物件的方法
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>📝 總結與自主練習</h2>
+            <p>掌握了以上概念後，你可以嘗試挑戰：</p>
+            <ol>
+                <li>寫一個計算 BMI 的小工具。</li>
+                <li>使用迴圈印出九九乘法表。</li>
+                <li>建立一個學生類別 (Student)，儲存成績並計算平均。</li>
+            </ol>
         </section>
     </main>
 
-    <hr>
     <footer>
-        <p style="text-align: center;">© 2026 老師姓名 - 使用 GitHub Pages 託管</p>
+        <hr>
+        <p style="text-align: center;">C++ 教學資源庫 - 持續更新中</p>
     </footer>
 
 </body>
