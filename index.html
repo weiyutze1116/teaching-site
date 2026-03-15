@@ -3,145 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ 程式設計：從入門到卓越</title>
+    <title>C++ 程式設計：從入門到卓越完全手冊</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 
     <style>
-        :root { --main-color: #007bff; --bg-secondary: #f9f9f9; }
-        body { max-width: 1100px; scroll-behavior: smooth; }
+        :root { --main: #007bff; --code-bg: #2d2d2d; }
+        body { max-width: 1200px; line-height: 1.8; scroll-behavior: smooth; }
+        
+        /* 側邊導覽列（電腦版固定） */
         nav { 
             position: sticky; top: 0; background: #fff; padding: 10px 0; 
-            z-index: 1000; border-bottom: 3px solid var(--main-color);
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;
+            z-index: 1000; border-bottom: 3px solid var(--main);
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
         }
-        nav a { font-weight: bold; font-size: 0.85rem; text-decoration: none; color: #444; }
-        nav a:hover { color: var(--main-color); }
-        .chapter { padding: 50px 0; border-bottom: 1px solid #eee; }
-        .code-container { position: relative; margin: 15px 0; }
+        nav a { font-size: 0.8rem; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: 0.2s; }
+        nav a:hover { background: var(--main); color: white !important; }
+
+        .chapter { padding: 60px 0; border-bottom: 1px solid #eee; }
+        .code-container { position: relative; margin: 20px 0; }
         .copy-btn {
             position: absolute; top: 10px; right: 10px; z-index: 10;
             padding: 4px 8px; font-size: 11px; cursor: pointer;
             background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);
             border-radius: 4px;
         }
-        .concept-box { background: var(--bg-secondary); padding: 15px; border-left: 5px solid var(--main-color); margin: 15px 0; }
-        h2 { color: var(--main-color); border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h3 { margin-top: 30px; color: #333; }
+        .pro-tip { background: #e7f3ff; border-left: 5px solid #007bff; padding: 15px; margin: 20px 0; border-radius: 0 5px 5px 0; }
+        h2 { color: var(--main); font-size: 2rem; border-left: 10px solid var(--main); padding-left: 15px; }
+        h3 { color: #333; margin-top: 30px; background: #f4f4f4; padding: 5px 15px; border-radius: 5px; }
     </style>
 </head>
 <body>
 
-    <header style="text-align: center; padding: 40px 0;">
-        <h1><i class="fa-solid fa-terminal"></i> C++ 程式設計：全方位教學指南</h1>
+    <header style="text-align: center; padding: 50px 0;">
+        <h1><i class="fa-solid fa-microchip"></i> C++ 程式設計：全方位教學指南</h1>
         <p>從零基礎語法到高階物件導向，建立最紮實的資工底層實力。</p>
     </header>
 
     <nav>
-        <a href="#ch1">1. 基礎與型態</a>
-        <a href="#ch2">2. 流程控制</a>
-        <a href="#ch3">3. 函式與作用域</a>
-        <a href="#ch4">4. 陣列與字串</a>
-        <a href="#ch5">5. 指標與記憶體</a>
-        <a href="#ch6">6. 物件導向 OOP</a>
-        <a href="#ch7">7. STL 標準庫</a>
+        <a href="#ch1">Ch1 基礎</a>
+        <a href="#ch2">Ch2 流程</a>
+        <a href="#ch3">Ch3 函式</a>
+        <a href="#ch4">Ch4 陣列</a>
+        <a href="#ch5">Ch5 指標</a>
+        <a href="#ch6">Ch6 物件</a>
+        <a href="#ch7">Ch7 STL</a>
+        <a href="#ch8">Ch8 進階</a>
     </nav>
 
     <main>
         <section id="ch1" class="chapter">
-            <h2>第 1 章：基礎語法與資料型態</h2>
-            <p>了解如何與電腦溝通，從變數宣告開始。</p>
-            <div class="concept-box">
-                <strong>核心重點：</strong> 變數宣告、輸入輸出 (cin/cout)、常數 (const)。
-            </div>
+            <h2>第 1 章：基礎語法與變數</h2>
+            <p>一切的開始。C++ 是一個編譯型語言，嚴謹的資料型態是其特徵。</p>
             <div class="code-container">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                 <pre><code class="language-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int main() {
-    int age = 20;          // 整數
-    double pi = 3.14159;   // 浮點數
-    char grade = 'A';      // 字元
-    string name = "User";  // 字串 (需包含 &lt;string&gt;)
+    int score = 100;       // 整數
+    float temp = 36.5f;    // 單精度浮點數
+    double pi = 3.14159;   // 雙精度浮點數
+    char initial = 'C';    // 單一字元
+    bool isPass = true;    // 布林值
     
-    cout << "請輸入一個數字：";
-    cin >> age;
+    cout << "分數為：" << score << endl;
     return 0;
 }</code></pre>
             </div>
         </section>
 
         <section id="ch2" class="chapter">
-            <h2>第 2 章：流程控制</h2>
-            <p>讓程式具備判斷能力與重複執行任務的能力。</p>
-            <h3>條件判斷 (if / switch)</h3>
-            <pre><code class="language-cpp">if (score >= 60) {
-    cout << "及格";
+            <h2>第 2 章：流程控制邏輯</h2>
+            <p>程式的靈魂在於「判斷」與「重複」。</p>
+            <h3>條件判斷 (if / else / switch)</h3>
+            <pre><code class="language-cpp">if (age >= 18) {
+    cout << "成年人";
+} else if (age > 12) {
+    cout << "青少年";
 } else {
-    cout << "不及格";
+    cout << "兒童";
 }</code></pre>
             <h3>迴圈控制 (for / while / do-while)</h3>
-            <pre><code class="language-cpp">// for 迴圈常用於已知次數
-for (int i = 0; i < 10; i++) {
-    cout << i << endl;
+            <pre><code class="language-cpp">for (int i = 1; i <= 5; i++) {
+    cout << "第 " << i << " 次執行" << endl;
 }</code></pre>
+        </section>
+
+        <section id="ch3" class="chapter">
+            <h2>第 3 章：函式與作用域</h2>
+            <p>將重複的程式碼打包，實現模組化。包含重要的「傳值」與「傳址」觀念。</p>
+            <div class="pro-tip">
+                <strong>💡 重點：</strong> C++ 預設是 <strong>Pass by Value</strong>，若要修改原始變數需使用 <strong>Reference (&)</strong>。
+            </div>
+            <pre><code class="language-cpp">// 函式宣告與定義
+int add(int a, int b) {
+    return a + b;
+}
+
+// 傳址呼叫 (Pass by Reference)
+void updateValue(int &n) {
+    n = 100; 
+}</code></pre>
+        </section>
+
+        <section id="ch4" class="chapter">
+            <h2>第 4 章：陣列、字串與結構體</h2>
+            <p>處理大量資料的基礎工具。</p>
+            <h3>一維與多維陣列</h3>
+            <pre><code class="language-cpp">int nums[5] = {1, 2, 3, 4, 5};
+int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};</code></pre>
+            <h3>結構體 (Struct)</h3>
+            <pre><code class="language-cpp">struct Student {
+    string name;
+    int grade;
+};
+
+Student s1 = {"小明", 90};</code></pre>
         </section>
 
         <section id="ch5" class="chapter">
-            <h2>第 5 章：指標與記憶體管理 (Pointers)</h2>
-            <div class="concept-box">
-                <strong>資工核心：</strong> 這是 C++ 最強大也最難的部分，允許直接存取記憶體位址。
-            </div>
+            <h2>第 5 章：指標與動態記憶體</h2>
+            <p>C++ 與其他高階語言最大的差別，在於直接操控記憶體的能力。</p>
             <pre><code class="language-cpp">int x = 10;
-int* ptr = &x; // ptr 指向 x 的記憶體位址
+int* p = &x; // p 儲存 x 的位址
 
-cout << "位址：" << ptr << endl;
-cout << "內容：" << *ptr << endl; // 解引用 (Dereference)
-
-// 動態記憶體配置
-int* dynamicArr = new int[5]; // 在 Heap 區塊要空間
-delete[] dynamicArr;          // 務必手動釋放防止 Memory Leak</code></pre>
+// 動態配置 (Heap)
+int* arr = new int[10]; 
+delete[] arr; // 務必釋放，否則會產生 Memory Leak</code></pre>
         </section>
 
         <section id="ch6" class="chapter">
-            <h2>第 6 章：物件導向程式設計 (OOP)</h2>
-            <p>將真實世界的概念抽象化為類別 (Class) 與物件 (Object)。</p>
-            <ul>
-                <li><strong>封裝 (Encapsulation)：</strong> 使用 private/public 保護資料。</li>
-                <li><strong>繼承 (Inheritance)：</strong> 子類別繼承父類別屬性。</li>
-                <li><strong>多型 (Polymorphism)：</strong> 同一個介面，多種實現。</li>
-            </ul>
-            <div class="code-container">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-cpp">class Animal {
+            <h2>第 6 章：物件導向 (OOP)</h2>
+            <p>封裝、繼承與多型：現代軟體開發的基石。</p>
+            <pre><code class="language-cpp">class Shape {
 public:
-    virtual void makeSound() { cout << "某種聲音"; }
+    virtual void draw() { cout << "繪製圖形"; } // 多型
 };
 
-class Cat : public Animal {
+class Circle : public Shape {
 public:
-    void makeSound() override { cout << "喵喵"; }
+    void draw() override { cout << "繪製圓形"; }
 };</code></pre>
-            </div>
         </section>
 
         <section id="ch7" class="chapter">
             <h2>第 7 章：STL 標準模板庫</h2>
-            <p>資工系實作中最常用的工具箱。</p>
+            <p>不要重新造輪子，學會使用 C++ 強大的內建工具。</p>
             <pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;map&gt;
 #include &lt;algorithm&gt;
 
-vector&lt;int&gt; v = {3, 1, 4};
-v.push_back(2);    // 動態新增元素
-sort(v.begin(), v.end()); // 內建排序演算法</code></pre>
+vector&lt;int&gt; v = {5, 2, 8};
+sort(v.begin(), v.end()); // 排序
+v.push_back(10);          // 新增元素</code></pre>
+        </section>
+
+        <section id="ch8" class="chapter">
+            <h2>第 8 章：進階主題 (檔案與異常)</h2>
+            <p>如何處理錯誤以及讀寫檔案。</p>
+            <pre><code class="language-cpp">#include &lt;fstream&gt;
+
+// 寫入檔案
+ofstream outfile("test.txt");
+outfile << "寫入內容";
+outfile.close();
+
+// 異常處理
+try {
+    if (denominator == 0) throw "除數不可為零";
+} catch (const char* msg) {
+    cerr << msg << endl;
+}</code></pre>
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 40px 0; background: #eee;">
-        <p>© 2026 C++ 語法權威指南 - 致力於最精確的程式教育</p>
+    <footer style="background: #333; color: #fff; text-align: center; padding: 40px 0; margin-top: 50px;">
+        <p>© 2026 C++ 語法權威指南 | 致力於最精確的資工教育</p>
+        <p><small>使用 GitHub Pages 與 Ubuntu/Vim 強力驅動</small></p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
